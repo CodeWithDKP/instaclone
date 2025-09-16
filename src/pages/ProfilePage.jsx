@@ -113,7 +113,7 @@ export default function ProfilePage() {
       {/* My posts grid (thumbnails with remove) */}
       <div style={{ marginTop: 8 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <h5>My Posts</h5>
+          <h5 className="mypost">My Posts</h5>
         </div>
 
         {myPosts.length === 0 && <div className="text-center text-muted">You haven't posted anything yet.</div>}

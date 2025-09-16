@@ -482,3 +482,99 @@ body {
     font-size: 18px;
   }
 }
+.text-center{
+  margin-left: 10px;
+}
+.mypost{
+  margin-left: 10px;
+}
+/* ===== Mobile Adjustments ===== */
+@media (max-width: 480px) {
+  /* Bottom nav */
+  .bottom-nav {
+    height: 55px;
+    border-radius: 20px;
+  }
+
+  .bottom-nav .nav-btn {
+    font-size: 20px;
+  }
+
+  /* Post form & card */
+  .post-form,
+  .post-card {
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  /* Post action buttons horizontal */
+  .post-card .row {
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  }
+
+  .post-card .col {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .post-card .btn-like,
+  .post-card .btn-action {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  /* Profile header: avatar left, info + edit right, stats below */
+  .profile-header {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 15px;
+  }
+
+  .profile-header .avatar-lg {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+
+  .profile-info {
+    flex: 1;
+    margin-left: 12px;
+  }
+
+  .profile-info h4 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .profile-info .edit-profile-btn {
+    display: inline-block;
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid #1da1f2;
+    color: #1da1f2;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .profile-stats {
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .profile-stats div span {
+    font-size: 12px;
+  }
+}
+/* Remove mobile tap highlight */
+button,
+.nav-btn,
+input,
+a {
+  -webkit-tap-highlight-color: transparent; /* iOS & Chrome */
+  outline: none; /* Remove focus outline */
+}
