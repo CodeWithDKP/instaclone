@@ -14,7 +14,7 @@ export default function App() {
           <header className="topbar">
             <div className="container d-flex align-items-center justify-content-between">
               <div className="left">
-                <h1 className="brand">InstaClone</h1>
+                <h1 className="brand">Glimmr</h1>
               </div>
               <div className="right icons">
                 <i className="icon-search" />
