@@ -4,6 +4,7 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: #121212;
   color: #e0e0e0;
+  -webkit-font-smoothing: antialiased;
 }
 
 .app-root {
@@ -15,31 +16,36 @@ body {
 /* ===== Topbar ===== */
 .topbar {
   background: rgba(20, 20, 20, 0.85);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding: 10px 0;
+  padding: 12px 15px;
   position: sticky;
   top: 0;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .topbar .brand {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
   margin: 0;
   color: #fff;
+  letter-spacing: 0.5px;
 }
 
 .topbar .icons i {
-  font-size: 18px;
-  margin-left: 15px;
+  font-size: 20px;
+  margin-left: 18px;
   cursor: pointer;
   color: #fff;
-  transition: transform 0.2s;
+  transition: transform 0.2s, color 0.3s;
 }
 
 .topbar .icons i:hover {
   transform: scale(1.2);
+  color: #1da1f2;
 }
 
 /* ===== Container Main ===== */
@@ -47,54 +53,53 @@ body {
   max-width: 600px;
   margin: 0 auto;
   width: 100%;
-  padding: 0 10px;
+  padding: 0 12px;
 }
 
 .app-main {
   flex: 1;
-  padding-top: 10px;
-  padding-bottom: 80px; /* space for bottom nav */
+  padding: 15px 0 90px; /* space for bottom nav */
 }
 
-/* ===== Bottom Navigation (Glass + Animations) ===== */
+/* ===== Bottom Navigation ===== */
 .bottom-nav {
   position: fixed;
-  bottom: 10px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
   width: 95%;
   max-width: 600px;
   height: 60px;
-  background: rgba(30,30,30,0.7);
+  background: rgba(30,30,30,0.8);
   backdrop-filter: blur(15px);
   border-radius: 30px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   z-index: 1000;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
 }
 
 .bottom-nav .nav-btn {
-  color: #e0e0e0;
+  color: #bbb;
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
   text-decoration: none;
-  transition: all 0.3s ease;
   font-size: 22px;
+  transition: all 0.3s ease;
 }
 
 .bottom-nav .nav-btn.active {
   color: #fff;
-  transform: scale(1.3);
+  transform: scale(1.25);
 }
 
 .bottom-nav .nav-btn:hover {
   color: #fff;
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
 /* ===== Post Form ===== */
@@ -103,32 +108,34 @@ body {
   backdrop-filter: blur(12px);
   border-radius: 15px;
   padding: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   border: 1px solid rgba(255,255,255,0.1);
   transition: transform 0.2s, box-shadow 0.2s;
+  
 }
 
 .post-form:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
 }
 
 .post-form .avatar-sm {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   flex-shrink: 0;
   border: 2px solid #fff;
 }
 
+/* Input */
 .post-form .post-text {
   width: 100%;
   border-radius: 20px;
   border: 1px solid rgba(255,255,255,0.2);
-  padding: 8px 12px;
+  padding: 10px 5px;
   resize: none;
   font-size: 14px;
-  background-color: rgba(255,255,255,0.05);
+  background-color: rgba(255,255,255,0.06);
   color: #fff;
   transition: all 0.2s ease;
 }
@@ -136,19 +143,24 @@ body {
 .post-form .post-text:focus {
   outline: none;
   border-color: #1da1f2;
-  box-shadow: 0 0 10px rgba(29,161,242,0.5);
-  background-color: rgba(255,255,255,0.08);
+  box-shadow: 0 0 12px rgba(29,161,242,0.5);
 }
 
+/* Button */
 .post-form .btn-post {
   border-radius: 20px;
-  padding: 5px 15px;
+  padding: 6px 18px;
   font-size: 14px;
   background-color: #1da1f2;
   border: none;
   color: #fff;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background-color 0.25s, transform 0.2s;
+}
+
+.post-form .btn-post:hover:not(:disabled) {
+  background-color: #0d8ddb;
+  transform: scale(1.05);
 }
 
 .post-form .btn-post:disabled {
@@ -156,17 +168,13 @@ body {
   cursor: not-allowed;
 }
 
-.post-form .btn-post:hover:not(:disabled) {
-  background-color: #0d8ddb;
-}
-
 .post-form .img-preview {
   width: 100%;
-  max-height: 300px;
+  max-height: 320px;
   object-fit: cover;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.2);
-  margin-top: 8px;
+  margin-top: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
   transition: transform 0.3s;
 }
 
@@ -174,51 +182,50 @@ body {
   transform: scale(1.02);
 }
 
-/* ===== Post Item ===== */
+/* ===== Post Card ===== */
 .post-card {
-  background: rgba(25,25,25,0.7);
+  background: rgba(25,25,25,0.75);
   backdrop-filter: blur(12px);
   border-radius: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .post-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
 }
 
 .post-card .card-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px;
+  gap: 12px;
+  padding: 12px;
 }
 
-.post-card .card-header .fw-bold {
+.post-card .fw-bold {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
   color: #fff;
 }
 
-.post-card .card-header small.text-muted {
+.post-card small.text-muted {
   font-size: 12px;
   color: #aaa;
 }
 
 .post-card .avatar-sm {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  flex-shrink: 0;
   border: 1px solid #fff;
 }
 
 .post-image {
   width: 100%;
-  max-height: 400px;
+  max-height: 420px;
   object-fit: cover;
   border-radius: 12px;
   transition: transform 0.3s;
@@ -230,27 +237,27 @@ body {
 
 .post-text {
   font-size: 14px;
-  margin-bottom: 8px;
+  margin: 8px 0;
   color: #e0e0e0;
 }
 
-/* Buttons in post */
+/* Post buttons */
 .btn-like,
 .btn-action {
   background: none;
   border: none;
-  font-size: 14px;
+  font-size: 15px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   color: #e0e0e0;
   transition: color 0.2s, transform 0.2s;
 }
 
 .btn-like.liked {
-  color: #e0245e; /* heart red */
-  transform: scale(1.1);
+  color: #e0245e;
+  transform: scale(1.15);
 }
 
 .btn-like:hover,
@@ -258,90 +265,82 @@ body {
   color: #fff;
   transform: scale(1.1);
 }
-
-/* ===== Comment Section ===== */
-.comment-section {
-  padding: 0 10px 10px 10px;
-  font-size: 14px;
+/* ==== Post Actions Horizontal ==== */
+.post-card .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
 }
 
-.existing-comments {
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-.comment-avatar-placeholder {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #555;
-  flex-shrink: 0;
-}
-
-.comment-section .fw-bold {
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.comment-section input.form-control {
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 5px 15px;
-  font-size: 14px;
+.post-card .col {
   flex: 1;
-  background-color: rgba(255,255,255,0.05);
-  color: #fff;
+  display: flex;
+  justify-content: center;
 }
 
-.comment-section input.form-control:focus {
-  outline: none;
-  border-color: #1da1f2;
-  box-shadow: 0 0 8px rgba(29,161,242,0.5);
-}
-
-.comment-section button.btn {
-  border-radius: 20px;
-  padding: 5px 15px;
-  font-size: 14px;
-  background-color: #1da1f2;
+.post-card .btn-like,
+.post-card .btn-action {
+  background: rgba(255, 255, 255, 0.05); /* glass look */
   border: none;
-  color: #fff;
+  padding: 6px 12px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s;
+  font-size: 14px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: all 0.2s ease-in-out;
+  backdrop-filter: blur(8px); /* glass effect */
 }
 
-.comment-section button.btn:hover {
-  background-color: #0d8ddb;
+.post-card .btn-like.liked {
+  color: #ff4d6d;
+  background: rgba(255, 77, 109, 0.15);
 }
 
-.existing-comments::-webkit-scrollbar {
-  width: 4px;
+.post-card .btn-like:hover,
+.post-card .btn-action:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.08);
 }
 
-.existing-comments::-webkit-scrollbar-thumb {
-  background-color: rgba(255,255,255,0.2);
-  border-radius: 2px;
+.post-card .btn-action svg {
+  vertical-align: middle;
 }
 
-.existing-comments::-webkit-scrollbar-track {
-  background: transparent;
+/* ==== Responsive ==== */
+@media (max-width: 480px) {
+  .post-card .row {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .post-card .col {
+    flex: 1 1 45%;
+  }
+  .post-card .btn-like,
+  .post-card .btn-action {
+    font-size: 13px;
+    padding: 5px 8px;
+  }
 }
+
 
 /* ===== Profile Page ===== */
-.profile-page {
-  padding-bottom: 80px; /* for bottom nav */
-}
-
-/* Header Card */
 .profile-header {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 22px;
   padding: 20px;
-  background: rgba(30,30,30,0.7);
-  backdrop-filter: blur(12px);
+  background: rgba(30,30,30,0.75);
   border-radius: 15px;
   border: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 20px;
 }
 
 .profile-header .avatar-lg {
@@ -349,70 +348,38 @@ body {
   height: 100px;
   border-radius: 50%;
   border: 2px solid #fff;
-  flex-shrink: 0;
 }
 
-.profile-info {
-  flex: 1;
-}
-
-.profile-top {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.profile-top h4 {
+.profile-info h4 {
   font-size: 20px;
   font-weight: 600;
-  color: #fff;
   margin: 0;
-}
-
-.btn-edit-profile {
-  padding: 5px 15px;
-  font-size: 14px;
-  border-radius: 5px;
-  background-color: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.3);
   color: #fff;
-  cursor: pointer;
-  transition: all 0.2s;
 }
 
-.btn-edit-profile:hover {
-  background-color: rgba(255,255,255,0.2);
-  border-color: rgba(255,255,255,0.5);
-}
-
-/* Stats */
 .profile-stats {
   display: flex;
-  gap: 20px;
-  margin-top: 10px;
+  gap: 25px;
+  margin-top: 12px;
 }
 
 .profile-stats div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
   color: #fff;
 }
 
 .profile-stats div span {
-  font-size: 12px;
+  font-size: 13px;
   color: #aaa;
 }
 
-/* Posts Grid */
 .profile-posts-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
-  margin-top: 15px;
 }
 
-.profile-posts-grid .grid-image {
+.profile-posts-grid img {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
@@ -420,29 +387,98 @@ body {
   transition: transform 0.3s;
 }
 
-.profile-posts-grid .grid-image:hover {
+.profile-posts-grid img:hover {
   transform: scale(1.05);
 }
 
-.profile-posts-grid .grid-placeholder {
-  width: 100%;
-  aspect-ratio: 1/1;
-  background-color: rgba(255,255,255,0.05);
+/* ===== Media Queries ===== */
+@media (max-width: 768px) {
+  .topbar .brand {
+    font-size: 18px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-stats {
+    justify-content: center;
+  }
+}
+/* ===== Modal ===== */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 12px;
-  color: #e0e0e0;
-  border-radius: 4px;
-  text-align: center;
-  padding: 4px;
+  align-items: center;
+  z-index: 2000;
 }
 
-
-/* ===== Text Center (empty feed) ===== */
-.text-center.text-muted {
+.modal-card {
+  background: #1e1e1e;
   padding: 20px;
-  color: #aaa;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+.modal-card h3 {
+  margin-top: 0;
+}
+
+.modal-card label {
+  display: block;
+  margin: 10px 0;
   font-size: 14px;
-  text-align: center;
+}
+
+.modal-card input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  margin-top: 5px;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+@media (max-width: 480px) {
+  .bottom-nav {
+    height: 55px;
+    border-radius: 20px;
+  }
+
+  .bottom-nav .nav-btn {
+    font-size: 20px;
+  }
+
+  .post-form,
+  .post-card {
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  .profile-header .avatar-lg {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-info h4 {
+    font-size: 18px;
+  }
 }
