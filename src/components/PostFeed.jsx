@@ -12,7 +12,7 @@ export default function PostFeed() {
   const visible = posts.slice(0, page * pageSize);
 
   useEffect(() => {
-    setPage(1); // reset when posts change (new posts added)
+    setPage(1); 
   }, [posts.length]);
 
   useEffect(() => {
@@ -22,7 +22,6 @@ export default function PostFeed() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // load more if exist
           if (visible.length < posts.length) {
             setPage((p) => p + 1);
           }

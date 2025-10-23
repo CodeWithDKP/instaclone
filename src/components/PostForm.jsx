@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import usePosts from "../hooks/usePosts";
 import ImageUploader from "./ImageUploader";
 

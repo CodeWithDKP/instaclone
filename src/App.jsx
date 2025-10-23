@@ -4,7 +4,7 @@ import { PostProvider } from "./context/PostContext";
 import FeedPage from "./pages/FeedPage";
 import ProfilePage from "./pages/ProfilePage";
 import BottomNav from "./components/BottomNav";
-import "./App.css";  // <-- Import CSS here once
+import "./App.css";  
 
 export default function App() {
   return (

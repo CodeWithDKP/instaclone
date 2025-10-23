@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import  { createContext, useState, useEffect } from "react";
 import { sampleInitialPosts } from "../utils/sampleData";
 
 export const PostContext = createContext();
@@ -170,7 +170,7 @@ export function PostProvider({ children }) {
         toggleLike,
         addComment,
         sharePost,
-        removePost,      // <--- added
+        removePost,      
         currentUser,
         setCurrentUser,
         updateProfile,   // keep it available

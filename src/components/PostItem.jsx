@@ -6,7 +6,7 @@ import { FiHeart, FiMessageCircle, FiSend, FiBookmark } from "react-icons/fi";
 export default function PostItem({ post }) {
   const { toggleLike, sharePost, currentUser, removePost } = usePosts();
   const [showComments, setShowComments] = useState(false);
-  const [saved, setSaved] = useState(false); // state for bookmark
+  const [saved, setSaved] = useState(false); 
   const liked = post.likes.includes(currentUser.id);
   const safeText = (v) => (typeof v === "string" || typeof v === "number" ? v : "");
   const handleShare = async () => {
